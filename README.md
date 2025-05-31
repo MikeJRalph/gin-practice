@@ -25,4 +25,49 @@ Add New Book	POST	/books	    Creates a new book from JSON request body.
 Update Book	     PUT	/books/:id	Updates an existing book by ID.
 Delete Book	    DELETE	/books/:id	Deletes a book by ID.
 
+## How to use
 
+Launch the app:
+
+```
+go run .
+```
+
+Open a Git Bash terminal
+
+Then enter the following:
+
+Get all books:
+
+```
+curl http://localhost:8080/books
+```
+
+Get a single book:
+
+```
+curl http://localhost:8080/books/1
+```
+
+Add a new book:
+
+```
+curl -X POST -H "Content-Type: application/json" -d '{"id": "4", "title": "The Lord of the Rings", "author": "J.R.R. Tolkien", "price": 25.00}' http://localhost:8080/books
+```
+
+Update a book:
+
+```
+curl -v -X PUT -H "Content-Type: application/json" -d '{
+    "id": "1",
+    "title": "The Updated Book Title",
+    "author": "New Author Name",
+    "price": 19.99
+}' http://localhost:8080/books/1
+```
+
+Delete a book:
+
+```
+curl -X DELETE http://localhost:8080/books/2
+```
